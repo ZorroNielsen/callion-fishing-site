@@ -51,6 +51,9 @@
   .menu-btn{display:none;background:none;border:0;padding:8px;cursor:pointer}
   .menu-btn span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0}
 
+  .notice{background:var(--paper);border-bottom:1px solid var(--line);font-size:.95rem;text-align:center;padding:10px 0}
+  .notice a{font-weight:700;margin-left:6px}
+
   /* hero */
   .hero{padding:0;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);min-height:600px;color:#fff;background:var(--navy)}
   .hero img{grid-column:2;grid-row:1;width:100%;height:100%;min-height:600px;object-fit:cover;object-position:42% 50%;display:block}
@@ -213,7 +216,7 @@
 </head>
 <body>
 
-<div class="preview-bar"><b>Preview concept</b> for Callion Fishing Charters · photos from your website and listing, plus a few stock stand-ins · booking and deposit amount are a demo</div>
+<div class="preview-bar"><b>Preview concept</b> for Callion Fishing Charters · all photos and videos are your own · booking and deposit amount are a demo</div>
 
 <header class="nav" id="nav">
   <div class="wrap nav-inner">
@@ -230,6 +233,8 @@
     </nav>
   </div>
 </header>
+
+<div class="notice"><div class="wrap">Tarpon season 2027: afternoon trips from March 20, mornings from April 1, both through June 30. <a href="#bookForm" data-trip="tarpon">Book a tarpon trip</a></div></div>
 
 <main id="top">
 
@@ -264,7 +269,7 @@
         </div>
       </article>
       <article class="trip">
-        <img src="https://images.unsplash.com/photo-1761197379839-b5759e0146a0?auto=format&fit=crop&w=700&h=440&q=75" alt="Fishing rod over the water" loading="lazy">
+        <img src="images/boat-running.jpg" alt="The LTB running with anglers aboard" loading="lazy">
         <div class="trip-body">
           <h3>Shark Fishing</h3>
           <div class="meta">4 hours · 8 am</div>
@@ -286,7 +291,7 @@
         </div>
       </article>
       <article class="trip">
-        <img src="https://images.unsplash.com/photo-1760443996524-b2b90f060fca?auto=format&fit=crop&w=700&h=440&q=75" alt="Clear shallow water over the flats" loading="lazy">
+        <img src="images/boat-sandbar.jpg" alt="The LTB anchored in clear shallow water" loading="lazy">
         <div class="trip-body">
           <h3>Special Flats</h3>
           <div class="meta">5 hours · 8 am</div>
@@ -297,10 +302,10 @@
         </div>
       </article>
       <article class="trip">
-        <img src="https://images.unsplash.com/photo-1604064412467-af16406b5ba5?auto=format&fit=crop&w=700&h=440&q=75" alt="Boat on the water at sunset" loading="lazy">
+        <img class="top" src="images/sunset-hookup.jpg" alt="Angler fighting a fish at sunset" loading="lazy">
         <div class="trip-body">
           <h3>6-Hour Morning</h3>
-          <div class="meta">6 hours · 8 am</div>
+          <div class="meta">Morning · 8 am</div>
           <p>More time on the water to chase several species in one trip.</p>
           <div class="price">$1,250</div>
           <div class="price-note">Up to 4 guests</div>
@@ -561,7 +566,6 @@
     </div>
     <div class="copy">
       <span>© 2026 Callion Fishing Charters</span>
-      <span>Some sample photos via Unsplash</span>
     </div>
   </div>
 </footer>
@@ -595,7 +599,7 @@
     shark:{name:'Shark Fishing',hrs:4,price:800,times:['8:00 AM']},
     tarpon:{name:'Tarpon',hrs:4,price:900,times:['6:00 AM','4:00 PM'],season:{'6:00 AM':['04-01','06-30'],'4:00 PM':['03-20','06-30']}},
     flats:{name:'Special Flats',hrs:5,price:1100,max:2,times:['8:00 AM'],season:{'8:00 AM':['08-01','10-15']}},
-    long:{name:'6-Hour Morning',hrs:6,price:1250,times:['8:00 AM']}
+    long:{name:'6-Hour Morning',hrs:0,price:1250,times:['8:00 AM']}
   };
   const $ = id => document.getElementById(id);
   const fmt = n => '$' + n.toLocaleString('en-US');
@@ -630,7 +634,7 @@
     $('minus').disabled = guests <= 1;
     $('plus').disabled = guests >= max;
     $('guestHint').textContent = `(max ${max})`;
-    $('sumTrip').textContent = `${trip.name} (${trip.hrs} hrs, ${$('style').value})`;
+    $('sumTrip').textContent = `${trip.name} (${trip.hrs ? trip.hrs + ' hrs, ' : ''}${$('style').value})`;
     $('sumPrice').textContent = fmt(trip.price);
     $('sumDeposit').textContent = fmt(DEPOSIT);
     $('sumBalance').textContent = fmt(trip.price - DEPOSIT);
