@@ -654,8 +654,13 @@
   }));
   $('modalClose').addEventListener('click',()=>$('modal').classList.remove('open'));
   $('modal').addEventListener('click',e=>{ if(e.target.id==='modal') $('modal').classList.remove('open'); });
-  // hide the phone call/book bar while the booking form is on screen
-  new IntersectionObserver(([e])=>document.querySelector('.mobile-cta').classList.toggle('hide',e.isIntersecting),{threshold:0.1}).observe($('bookForm'));
+  // hide the phone call/book bar while the hero buttons or the booking form are on screen
+  const seen = new Map();
+  const io = new IntersectionObserver(es=>{
+    es.forEach(e=>seen.set(e.target,e.isIntersecting));
+    document.querySelector('.mobile-cta').classList.toggle('hide',[...seen.values()].some(Boolean));
+  },{threshold:0.1});
+  io.observe(document.querySelector('.hero-ctas')); io.observe($('bookForm'));
   update();
 </script>
 </body>
