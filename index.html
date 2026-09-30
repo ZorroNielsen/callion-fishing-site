@@ -8,285 +8,191 @@
 <meta name="description" content="Tarpon, shark, flats and half-day fishing charters in Marathon, Florida Keys with Captain John Callion. Family-run since 1979. Book direct.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --sea:#154a78; --sea-deep:#0b2642; --lagoon:#2f7fb5; --shallow:#cfe3f2;
-    --sand:#eef3f7; --sand-2:#dde7ef; --coral:#f2b33d; --coral-dk:#9a6208;
-    --ink:#0d1b2a; --muted:#526273; --line:#d6dfe8; --white:#fbfcfd;
-    --radius:18px; --shadow:0 12px 32px -14px rgba(11,38,66,.35);
+    --navy:#0e2a47; --navy-2:#153a60; --gold:#f2b33d; --gold-dk:#e0a128;
+    --ink:#17212b; --muted:#5b6773; --line:#dde3e9; --paper:#f4f6f8; --white:#fff;
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{margin:0;font-family:Manrope,system-ui,sans-serif;color:var(--ink);background:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased}
-  h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.1;margin:0 0 .5em;letter-spacing:-.01em}
-  h2{font-size:clamp(2rem,4vw,2.9rem)}
-  h3{font-size:1.3rem}
+  body{margin:0;font-family:"Source Sans 3",system-ui,sans-serif;font-size:17px;color:var(--ink);background:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.01em;line-height:1.05;margin:0 0 .5em;color:var(--navy)}
+  h2{font-size:clamp(2.2rem,4.4vw,3.1rem)}
+  h3{font-size:1.45rem}
   p{margin:0 0 1em}
-  a{color:var(--sea)}
+  a{color:var(--navy-2)}
   img{max-width:100%}
-  .wrap{max-width:1160px;margin:0 auto;padding:0 20px}
-  .eyebrow{font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--coral-dk);margin-bottom:.8rem;display:block}
-  .lead{font-size:1.12rem;color:var(--muted);max-width:46ch}
-  section{padding:96px 0;scroll-margin-top:50px}
-  .btn{display:inline-flex;align-items:center;gap:.5em;padding:14px 26px;border-radius:999px;font-weight:700;text-decoration:none;border:0;cursor:pointer;font:inherit;font-weight:700;transition:transform .15s,background .15s,box-shadow .15s}
-  .btn:hover{transform:translateY(-1px)}
-  .btn-coral{background:var(--coral);color:var(--ink);box-shadow:0 8px 20px -8px rgba(242,179,61,.8)}
-  .btn-coral:hover{background:#e3a228}
-  .btn-ghost{background:rgba(255,255,255,.14);color:#fff;border:1.5px solid rgba(255,255,255,.55)}
-  .btn-ghost:hover{background:rgba(255,255,255,.24)}
-  .btn-outline{background:transparent;color:var(--sea);border:1.5px solid var(--sea)}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 20px}
+  .intro{font-size:1.1rem;color:var(--muted);max-width:52ch}
+  section{padding:88px 0;scroll-margin-top:60px}
+  main > section:not(.hero) + section{border-top:1px solid var(--line)}
 
-  /* preview ribbon */
-  .preview-bar{background:var(--ink);color:#cdd9e5;font-size:.82rem;text-align:center;padding:8px 16px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 24px;border-radius:6px;font:inherit;font-weight:700;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+  .btn-gold{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+  .btn-gold:hover{background:var(--gold-dk);border-color:var(--gold-dk)}
+  .btn-line{background:transparent;color:var(--navy);border-color:var(--navy)}
+  .btn-line:hover{background:var(--navy);color:#fff}
+  .btn-white{background:transparent;color:#fff;border-color:rgba(255,255,255,.85)}
+  .btn-white:hover{background:#fff;color:var(--navy)}
+
+  /* preview ribbon (ours, not part of the site) */
+  .preview-bar{background:#111;color:#ccc;font-size:.8rem;text-align:center;padding:7px 16px}
   .preview-bar b{color:#fff}
 
-  /* nav */
-  header.nav{position:sticky;top:0;z-index:50;background:rgba(251,252,253,.92);backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .2s}
-  header.nav.scrolled{border-color:var(--line)}
-  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:70px}
-  .logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
-  .logo-mark{width:38px;height:38px}
-  .logo-text{font-family:Fraunces,serif;font-weight:700;font-size:1.15rem;line-height:1}
-  .logo-text small{display:block;font-family:Manrope,sans-serif;font-weight:600;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:4px}
-  .nav-links{display:flex;gap:28px;align-items:center}
-  .nav-links a{text-decoration:none;color:var(--ink);font-weight:600;font-size:.95rem}
-  .nav-links a:hover{color:var(--sea)}
-  .nav-links .btn{padding:10px 20px;color:#fff}
+  /* header */
+  header.nav{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px;gap:20px}
+  .brand{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:1.45rem;text-transform:uppercase;letter-spacing:.02em;color:var(--navy);text-decoration:none;line-height:1}
+  .nav-links{display:flex;gap:26px;align-items:center}
+  .nav-links a{text-decoration:none;color:var(--ink);font-weight:600;font-size:.98rem}
+  .nav-links a:hover{color:var(--navy-2)}
+  .nav-links .btn{padding:9px 18px;color:var(--ink)}
   .menu-btn{display:none;background:none;border:0;padding:8px;cursor:pointer}
-  .menu-btn span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0;border-radius:2px}
-
-  main > section:not(.hero):not(.book){border-top:1px solid var(--line)}
+  .menu-btn span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0}
 
   /* hero */
-  .hero{position:relative;color:#fff;padding:0;overflow:hidden;background:var(--sea-deep)}
-  .hero-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% center}
-  .hero-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,26,46,.84) 0%,rgba(8,26,46,.55) 45%,rgba(8,26,46,.05) 80%),linear-gradient(0deg,rgba(8,26,46,.45),transparent 40%)}
-  .hero-inner{position:relative;padding:140px 0 170px;max-width:680px}
-  @media (min-width:901px){
-    .hero-art{left:30%;width:70%;object-position:center 40%}
-    .hero-shade{background:linear-gradient(90deg,#0b2642 0%,#0b2642 30%,rgba(11,38,66,.55) 42%,rgba(11,38,66,.05) 70%),linear-gradient(0deg,rgba(8,26,46,.4),transparent 40%)}
-  }
-  .hero h1{font-size:clamp(2.6rem,6.4vw,4.8rem);font-weight:700;text-shadow:0 2px 24px rgba(11,38,66,.35)}
-  .hero h1 em{font-style:italic;color:var(--coral)}
-  .hero p{font-size:1.18rem;max-width:40ch;opacity:.95}
-  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
-  .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(11,38,66,.45);border:1px solid rgba(255,255,255,.25);padding:6px 14px;border-radius:999px;font-size:.85rem;font-weight:600;margin-bottom:22px}
-  .stars{color:#ffd166;letter-spacing:1px}
-
-  /* trust strip */
-  .trust{background:var(--white);padding:0;border-bottom:1px solid var(--line)}
-  .trust-grid{display:grid;grid-template-columns:repeat(4,1fr)}
-  .trust-item{padding:26px 18px;text-align:center;border-right:1px solid var(--line)}
-  .trust-item:last-child{border-right:0}
-  .trust-item strong{display:block;font-family:Fraunces,serif;font-size:1.7rem;color:var(--sea)}
-  .trust-item strong small{font-size:.6em}
-  .trust-item span{font-size:.88rem;color:var(--muted);font-weight:600}
+  .hero{position:relative;padding:0;min-height:640px;display:flex;align-items:flex-end;color:#fff;background:var(--navy)}
+  .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 45%}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,20,34,.78) 0%,rgba(8,20,34,.35) 45%,rgba(8,20,34,.1) 100%)}
+  .hero-inner{position:relative;z-index:1;padding:0 0 64px;width:100%}
+  .hero h1{color:#fff;font-size:clamp(3rem,7.5vw,5.6rem);margin:0 0 10px}
+  .hero .place{font-family:"Barlow Condensed",sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:1.15rem;margin-bottom:14px;color:#e8edf2}
+  .hero p{font-size:1.15rem;max-width:44ch;margin-bottom:26px}
+  .hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
 
   /* trips */
-  .trips-head{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:44px}
-  .trip-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
-  .trip-img img.top{object-position:center 18%}
-  .social{display:flex;gap:14px;flex-wrap:wrap;margin-top:14px;font-size:.9rem}
-  @media (max-width:1100px){.trip-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 20px 16px;margin:0 -20px;scroll-padding:0 20px}.trip-grid .trip{flex:0 0 260px;scroll-snap-align:start}.trip:hover{transform:none}}
-  .trip{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:20px;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
-  .trip:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
-  .trip-img{margin:-20px -20px 18px;height:150px;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0}
-  .trip-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
-  .trip:hover .trip-img img{transform:scale(1.05)}
-  .trip{overflow:hidden}
-  .trip .dur{display:inline-block;align-self:flex-start;background:var(--sand);color:var(--sea-deep);font-weight:700;font-size:.78rem;padding:4px 12px;border-radius:999px;margin-bottom:16px}
-  .trip.feature{border:2px solid var(--sea)}
-      .trip h3{margin-bottom:.35em;font-size:1.15rem}
-  .trip p{color:var(--muted);font-size:.95rem;flex:1}
-  .price{font-family:Fraunces,serif;font-size:2.1rem;font-weight:700;line-height:1;margin:14px 0 6px}
-  .trip-meta{font-size:.84rem;color:var(--muted);margin-bottom:18px}
-  .trip .btn{justify-content:center;padding:11px 18px;font-size:.95rem}
-    .trip-notes{margin-top:26px;display:flex;flex-wrap:wrap;gap:10px 26px;font-size:.9rem;color:var(--muted)}
-  .trip-notes span::before{content:"•";color:var(--coral-dk);margin-right:8px}
-
-  /* photo placeholders */
-  .ph{position:relative;border-radius:var(--radius);overflow:hidden;background:
-      repeating-linear-gradient(135deg,rgba(255,255,255,.08) 0 12px,transparent 12px 24px),
-      linear-gradient(160deg,var(--lagoon),var(--sea-deep));
-    display:flex;align-items:flex-end;min-height:220px}
-  .ph.sand{background:repeating-linear-gradient(135deg,rgba(255,255,255,.25) 0 12px,transparent 12px 24px),linear-gradient(160deg,var(--sand-2),#d9bf8f)}
-  .ph.sunset{background:repeating-linear-gradient(135deg,rgba(255,255,255,.1) 0 12px,transparent 12px 24px),linear-gradient(170deg,#f7b27d,#e8744f 55%,#8a3f4f)}
-  .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-  .ph-label{position:relative;margin:14px;background:rgba(13,27,42,.72);color:#fff;font-size:.78rem;font-weight:600;padding:6px 12px;border-radius:999px;display:inline-flex;align-items:center;gap:6px}
-
-  /* captains */
-  .captains{background:var(--white)}
-  .split{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-  .photo-stack{display:grid;grid-template-columns:1.3fr 1fr;grid-template-rows:200px 200px;gap:14px}
-  .photo-stack .ph:first-child{grid-row:span 2;min-height:0}
-  .photo-stack .ph{min-height:0}
-  .checklist{list-style:none;padding:0;margin:24px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:10px 20px}
-  .checklist li{display:flex;gap:10px;align-items:flex-start;font-weight:600;font-size:.95rem}
-  .checklist li::before{content:"";flex:none;width:20px;height:20px;margin-top:2px;border-radius:50%;background:var(--sea) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 10.5l3 3 6-7' fill='none' stroke='white' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/100% no-repeat}
-  .sig{font-family:Fraunces,serif;font-style:italic;font-size:1.25rem;color:var(--sea);margin-top:28px}
-
-  /* boat */
-  .boat-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:start}
-  .specs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:26px 0}
-  .spec{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px}
-  .spec b{display:block;font-family:Fraunces,serif;font-size:1.35rem;color:var(--sea)}
-  .spec span{font-size:.8rem;color:var(--muted);font-weight:600}
-  .features{columns:2;column-gap:24px;padding:0;list-style:none;margin:0}
-  .features li{break-inside:avoid;padding:9px 0;border-bottom:1px dashed var(--line);font-size:.95rem}
-  .boat-photos{display:grid;gap:14px}
-  .boat-photos .ph:first-child{min-height:320px}
-  .boat-photos .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-
-  /* videos */
-  .video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:920px;margin:0 auto}
-  .videos-head{text-align:center;margin-bottom:44px}
-  .videos-head .lead{margin:0 auto}
-  .vid-card{margin:0}
-  .vid{position:relative;display:block;width:100%;aspect-ratio:9/16;border:0;padding:0;border-radius:var(--radius);overflow:hidden;cursor:pointer;background:var(--ink)}
-  .vid img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
-  .vid:hover img{transform:scale(1.03)}
-  .vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-  .play{position:absolute;left:50%;top:50%;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;background:rgba(255,255,255,.94);box-shadow:0 8px 24px rgba(0,0,0,.25)}
-  .play::after{content:"";position:absolute;left:25px;top:20px;border-left:19px solid var(--ink);border-top:12px solid transparent;border-bottom:12px solid transparent}
-  .vid-card figcaption{font-family:Fraunces,serif;font-weight:700;font-size:1.15rem;margin-top:12px}
-
-  /* boat gallery */
-  .boat-head{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:end;margin-bottom:36px}
-  .boat-head .specs{margin:0}
-  .boat-gallery{display:grid;grid-template-columns:1.9fr 1fr 1fr 1fr;gap:14px;height:420px}
-  .boat-gallery img{width:100%;height:100%;object-fit:cover;border-radius:var(--radius);display:block}
-
-  /* included */
-  .included{background:var(--white)}
-    .inc-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px}
-  .inc-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px}
-  .inc-card h3{color:var(--ink)}
-  .inc-card ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:10px 18px}
-  .inc-card li{padding-left:22px;position:relative}
-  .inc-card li::before{content:"";position:absolute;left:0;top:.62em;width:9px;height:9px;border-radius:50%;background:var(--coral)}
-  .inc-note{margin-top:20px;font-size:.88rem;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
-
-  /* reviews */
-  .reviews-head{display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:20px;margin-bottom:40px}
-  .rating-big{display:flex;align-items:center;gap:14px}
-  .rating-big b{font-family:Fraunces,serif;font-size:3.2rem;color:var(--sea);line-height:1}
-  .rating-big .stars{font-size:1.2rem}
-  .rating-big small{display:block;color:var(--muted);font-weight:600}
-  .review-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-  .review{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px}
-  .review h3{font-size:1.12rem}
-  .review blockquote{margin:0 0 18px;color:#2f4448}
-  .review footer{display:flex;align-items:center;gap:12px;font-size:.88rem;color:var(--muted)}
-  .avatar{width:40px;height:40px;border-radius:50%;background:var(--sand);color:var(--sea-deep);display:grid;place-items:center;font-weight:700}
-  .review footer b{color:var(--ink);display:block}
+  .trip-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:40px}
+  .trip{border:1px solid var(--line);border-radius:8px;overflow:hidden;display:flex;flex-direction:column;background:#fff}
+  .trip img{width:100%;height:150px;object-fit:cover;display:block}
+  .trip img.top{object-position:center 18%}
+  .trip-body{padding:16px 18px 18px;display:flex;flex-direction:column;flex:1}
+  .trip h3{font-size:1.4rem;margin-bottom:4px}
+  .trip .meta{font-size:.9rem;color:var(--muted);font-weight:600;margin-bottom:10px}
+  .trip p{font-size:.95rem;color:var(--muted);flex:1}
+  .price{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:2.2rem;color:var(--ink);line-height:1;margin:6px 0 4px}
+  .price-note{font-size:.85rem;color:var(--muted);margin-bottom:14px}
+  .trip .btn{padding:10px 14px;font-size:.95rem}
+  .trip-foot{margin-top:22px;color:var(--muted);font-size:.95rem}
+  @media (max-width:1100px){
+    .trip-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin:40px -20px 0;padding:0 20px 12px;scroll-padding:0 20px}
+    .trip{flex:0 0 260px;scroll-snap-align:start}
+  }
 
   /* booking */
-  .book{background:var(--white);padding-top:40px}
   .book-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:56px;align-items:start}
-  .why-direct{list-style:none;padding:0;margin:26px 0}
-  .why-direct li{display:flex;gap:14px;margin-bottom:18px}
-  .why-direct .n{flex:none;width:32px;height:32px;border-radius:50%;background:var(--coral);color:var(--ink);font-weight:700;display:grid;place-items:center}
-  .why-direct b{display:block}
-  .why-direct span{color:var(--muted);font-size:.95rem}
-  .form-card{background:#fff;border-radius:24px;box-shadow:var(--shadow);border:1px solid var(--line);padding:20px 26px;scroll-margin-top:78px}
-  .form-card h3{font-size:1.35rem;margin-bottom:.45em}
+  .form-card{border:1px solid var(--line);border-radius:8px;padding:22px 24px;scroll-margin-top:78px;background:#fff}
+  .form-card h3{margin-bottom:12px}
   .field{margin-bottom:12px}
-  .field label{display:block;font-weight:700;font-size:.84rem;margin-bottom:4px}
-  .field input,.field select,.field textarea{width:100%;font:inherit;padding:9px 12px;height:42px;border-radius:10px;border:1.5px solid var(--line);background:var(--white);color:var(--ink)}
-  .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--lagoon);box-shadow:0 0 0 3px rgba(47,127,181,.18)}
-  .field .hint{font-size:.76rem;color:var(--muted);margin-top:3px}
-  .field .err{font-size:.8rem;color:#b3261e;margin-top:5px;display:none}
+  .field label{display:block;font-weight:700;font-size:.88rem;margin-bottom:4px}
+  .field input,.field select{width:100%;min-width:0;font:inherit;font-size:1rem;padding:0 12px;height:42px;border-radius:6px;border:1px solid #c9d2db;background:#fff;color:var(--ink)}
+  .field input:focus,.field select:focus{outline:2px solid var(--navy-2);outline-offset:0;border-color:var(--navy-2)}
+  .err{font-size:.85rem;color:#b3261e;margin-top:5px;display:none}
   .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-  .row-trip{grid-template-columns:repeat(auto-fit,minmax(0,1fr))}
-  .lbl-hint{font-weight:500;color:var(--muted)}
-  .field input,.field select{min-width:0}
-  .field select{padding-top:0;padding-bottom:0;line-height:normal}
-  .stepper{display:flex;align-items:center;height:42px;border:1.5px solid var(--line);border-radius:10px;overflow:hidden;background:var(--white)}
-  .stepper button{width:42px;height:40px;border:0;background:transparent;font-size:1.3rem;cursor:pointer;color:var(--sea)}
+  .muted{font-weight:400;color:var(--muted)}
+  .stepper{display:flex;align-items:center;height:42px;border:1px solid #c9d2db;border-radius:6px;overflow:hidden}
+  .stepper button{width:44px;height:40px;border:0;background:transparent;font-size:1.3rem;cursor:pointer;color:var(--navy)}
   .stepper button:disabled{color:#c4c4c4;cursor:default}
   .stepper output{flex:1;text-align:center;font-weight:700}
-  .summary{background:var(--sand);border-radius:14px;padding:12px 18px;margin:14px 0}
-  .summary .line{display:flex;justify-content:space-between;padding:2px 0;font-size:.92rem}
-  .summary .line.total{border-top:1px solid var(--line);margin-top:6px;padding-top:8px;font-weight:700;font-size:1rem}
-  .summary .line.total b{color:var(--sea);font-size:1.3rem;font-family:Fraunces,serif}
-  .summary small{display:block;color:var(--muted);margin-top:6px;font-size:.76rem;line-height:1.4}
-  .form-card .btn{width:100%;justify-content:center;font-size:1.02rem;padding:13px}
-  .secure{display:flex;gap:8px;justify-content:center;align-items:center;color:var(--muted);font-size:.78rem;margin-top:8px}
+  .summary{background:var(--paper);border-radius:6px;padding:12px 16px;margin:14px 0;font-size:.95rem}
+  .summary .line{display:flex;justify-content:space-between;padding:2px 0}
+  .summary .total{border-top:1px solid var(--line);margin-top:6px;padding-top:8px;font-weight:700}
+  .summary small{display:block;color:var(--muted);margin-top:4px;font-size:.84rem}
+  .form-card .btn{width:100%}
+  .secure{text-align:center;color:var(--muted);font-size:.84rem;margin-top:8px}
 
-  /* policy / faq */
-  .faq-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:60px}
-  .policy{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px}
-  .policy ol{list-style:none;padding:0;margin:0}
-  .policy li{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
-  .policy li:last-child{border:0}
-  .policy .when{flex:none;width:92px;font-weight:700;color:var(--sea);font-size:.9rem}
+  /* captain */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .photos{display:grid;grid-template-columns:1.3fr 1fr;grid-template-rows:210px 210px;gap:12px}
+  .photos img{width:100%;height:100%;object-fit:cover;border-radius:8px;display:block}
+  .photos img:first-child{grid-row:span 2}
+
+  /* videos */
+  #videos .wrap{text-align:center}
+  #videos .intro{margin:0 auto}
+  .video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:900px;margin:36px auto 0;text-align:left}
+  .vid-card{margin:0}
+  .vid{position:relative;display:block;width:100%;aspect-ratio:9/16;border:0;padding:0;border-radius:8px;overflow:hidden;cursor:pointer;background:#000}
+  .vid img{width:100%;height:100%;object-fit:cover;display:block}
+  .vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .play{position:absolute;left:50%;top:50%;width:62px;height:62px;margin:-31px 0 0 -31px;border-radius:50%;background:rgba(0,0,0,.55);border:2px solid #fff}
+  .play::after{content:"";position:absolute;left:23px;top:17px;border-left:18px solid #fff;border-top:12px solid transparent;border-bottom:12px solid transparent}
+  .vid-card figcaption{font-weight:700;margin-top:10px}
+
+  /* boats */
+  .boat-gallery{display:grid;grid-template-columns:1.9fr 1fr 1fr 1fr;gap:12px;height:420px;margin-top:36px}
+  .boat-gallery img{width:100%;height:100%;object-fit:cover;border-radius:8px;display:block}
+
+  /* included */
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-top:32px}
+  .plain-list{list-style:none;padding:0;margin:0}
+  .plain-list li{padding:10px 0;border-bottom:1px solid var(--line)}
+  .plain-list li:first-child{border-top:1px solid var(--line)}
+
+  /* reviews */
+  .rating{font-size:1.05rem;color:var(--muted)}
+  .rating b{color:var(--ink)}
+  .stars{color:#e8a317;letter-spacing:1px}
+  .review-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:32px}
+  .review{border:1px solid var(--line);border-radius:8px;padding:24px}
+  .review h3{font-family:"Source Sans 3",sans-serif;text-transform:none;letter-spacing:0;font-size:1.1rem;color:var(--ink);margin:6px 0 8px}
+  .review blockquote{margin:0 0 14px;color:#34404c}
+  .review .who{font-size:.92rem;color:var(--muted)}
+  .review .who b{color:var(--ink)}
+
+  /* faq */
+  .faq{max-width:780px}
   details{border-bottom:1px solid var(--line)}
-  summary{cursor:pointer;list-style:none;padding:20px 40px 20px 0;font-weight:700;font-size:1.05rem;position:relative}
+  details:first-of-type{border-top:1px solid var(--line)}
+  summary{cursor:pointer;list-style:none;padding:18px 36px 18px 0;font-weight:700;font-size:1.08rem;position:relative}
   summary::-webkit-details-marker{display:none}
-  summary::after{content:"+";position:absolute;right:6px;top:14px;font-size:1.6rem;color:var(--coral);font-weight:400;transition:transform .2s}
-  details[open] summary::after{transform:rotate(45deg)}
-  details p{color:var(--muted);padding-bottom:10px}
+  summary::after{content:"+";position:absolute;right:4px;top:12px;font-size:1.6rem;font-weight:400;color:var(--navy)}
+  details[open] summary::after{content:"–"}
+  details p{color:var(--muted)}
 
   /* footer */
-  footer.site{background:var(--ink);color:#b5c3d2;padding:70px 0 30px}
-  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
-  footer.site h3{color:#fff;font-size:1.1rem}
+  footer.site{background:var(--navy);color:#c8d3de;padding:56px 0 28px}
+  .foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:40px}
+  footer.site .brand{color:#fff;display:inline-block;margin-bottom:8px}
+  footer.site h4{color:#fff;font-size:.95rem;margin:0 0 10px;text-transform:uppercase;letter-spacing:.06em}
   footer.site a{color:#fff;text-decoration:none}
-  footer.site a:hover{color:var(--shallow)}
-  .foot-cta{font-family:Fraunces,serif;font-size:2rem;color:#fff;line-height:1.15;margin-bottom:18px}
-  .contact-line{display:flex;gap:10px;align-items:center;margin-bottom:10px}
-  .copy{border-top:1px solid rgba(255,255,255,.1);margin-top:50px;padding-top:22px;font-size:.82rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  footer.site a:hover{text-decoration:underline}
+  .foot-line{margin-bottom:6px}
+  .copy{border-top:1px solid rgba(255,255,255,.15);margin-top:40px;padding-top:18px;font-size:.84rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
 
   /* modal */
-  .modal{position:fixed;inset:0;background:rgba(8,20,35,.6);display:none;align-items:center;justify-content:center;padding:20px;z-index:100}
+  .modal{position:fixed;inset:0;background:rgba(8,20,34,.6);display:none;align-items:center;justify-content:center;padding:20px;z-index:100}
   .modal.open{display:flex}
-  .modal-card{background:#fff;border-radius:22px;max-width:440px;width:100%;padding:32px;text-align:center;box-shadow:0 30px 60px -20px rgba(0,0,0,.5)}
-  .modal-card .big{font-size:3rem;line-height:1}
+  .modal-card{background:#fff;border-radius:8px;max-width:440px;width:100%;padding:28px}
   .modal-card p{color:var(--muted)}
 
-  /* mobile sticky */
   .mobile-cta{display:none}
 
   @media (max-width:900px){
-    section{padding:70px 0}
-    .split,.boat-grid,.book-grid,.faq-grid,.inc-grid{grid-template-columns:1fr;gap:40px}
-    .trust-grid{grid-template-columns:repeat(2,1fr)}
-    .trust-item:nth-child(2){border-right:0}
-    .trust-item:nth-child(-n+2){border-bottom:1px solid var(--line)}
-    .review-grid{grid-template-columns:1fr}
-    .video-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -20px;padding:4px 20px 12px;scroll-padding:0 20px}
-    .vid-card{flex:0 0 62%;scroll-snap-align:start}
-    .boat-head{grid-template-columns:1fr;gap:24px}
-    .boat-gallery{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;height:340px;margin:0 -20px;padding:0 20px;scroll-padding:0 20px}
-    .boat-gallery img{flex:0 0 auto;width:auto;aspect-ratio:3/4;scroll-snap-align:start}
-    .boat-gallery img.wide{aspect-ratio:4/3}
-    .foot-grid{grid-template-columns:1fr}
-    .nav-links{position:absolute;top:70px;left:0;right:0;background:var(--white);flex-direction:column;align-items:stretch;gap:0;padding:10px 20px 20px;border-bottom:1px solid var(--line);display:none}
+    section{padding:64px 0}
+    .split,.book-grid,.two-col,.foot-grid,.review-grid{grid-template-columns:1fr;gap:32px}
+    .nav-links{position:absolute;top:68px;left:0;right:0;background:#fff;flex-direction:column;align-items:stretch;gap:0;padding:8px 20px 18px;border-bottom:1px solid var(--line);display:none}
     .nav-links.open{display:flex}
     .nav-links a{padding:12px 0}
-    .nav-links .btn{justify-content:center;margin-top:8px}
+    .nav-links .btn{margin-top:8px}
     .menu-btn{display:block}
-    .mobile-cta{transition:opacity .2s,transform .2s}
-    .mobile-cta.hide{opacity:0;transform:translateY(20px);pointer-events:none}
-    .mobile-cta{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:60;gap:10px}
-    .mobile-cta a{flex:1;justify-content:center;padding:14px}
-    .mobile-cta .call{background:#fff;color:var(--sea);border:1.5px solid var(--sea)}
-    footer.site{padding-bottom:100px}
+    .hero{min-height:560px}
+    .video-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin:32px -20px 0;padding:0 20px 12px;scroll-padding:0 20px}
+    .vid-card{flex:0 0 62%;scroll-snap-align:start}
+    .boat-gallery{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;height:320px;margin:32px -20px 0;padding:0 20px;scroll-padding:0 20px}
+    .boat-gallery img{flex:0 0 auto;width:auto;aspect-ratio:3/4;scroll-snap-align:start}
+    .boat-gallery img.wide{aspect-ratio:4/3}
+    .mobile-cta{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:60;gap:10px;transition:opacity .2s}
+    .mobile-cta.hide{opacity:0;pointer-events:none}
+    .mobile-cta .btn{flex:1;padding:13px}
+    .mobile-cta .btn-line{background:#fff}
+    footer.site{padding-bottom:96px}
   }
   @media (max-width:560px){
-    .hero-inner{padding:80px 0 120px}
-    .checklist,.inc-card ul,.row-trip{grid-template-columns:1fr}
-    .form-card{scroll-margin-top:72px;padding:16px 18px}
-    .form-card .field{margin-bottom:9px}
-    .field input,.field select,.stepper{height:40px}
-    .summary{margin:10px 0}
-    .features{columns:1}
-    .specs{grid-template-columns:repeat(3,1fr);gap:8px}
-    .spec{padding:12px}
-    .spec b{font-size:1.15rem}
-    .photo-stack{grid-template-rows:160px 160px}
-    .form-card{padding:22px}
+    .hero-inner{padding-bottom:44px}
+    .hero-ctas .btn{flex:1 1 100%}
+    .photos{grid-template-rows:160px 160px}
+    .form-card{padding:18px}
   }
 </style>
 </head>
@@ -296,16 +202,7 @@
 
 <header class="nav" id="nav">
   <div class="wrap nav-inner">
-    <a href="#top" class="logo" aria-label="Callion Fishing Charters home">
-      <svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true">
-        <circle cx="20" cy="20" r="20" fill="#154a78"/>
-        <path d="M0 24h40v16H0z" fill="#0b2642"/>
-        <path d="M9 21c3-7 12-10 20-6-3 1-5 3-6 5 3 0 5 1 7 3-6 2-13 2-21-2z" fill="#f2b33d"/>
-        <path d="M4 27c5-2.5 10-2.5 16 0s11 2.5 16 0" stroke="#cfe3f2" stroke-width="2" fill="none" stroke-linecap="round"/>
-        <path d="M8 33c4-2 8-2 12 0s8 2 12 0" stroke="#eef3f7" stroke-width="2" fill="none" stroke-linecap="round"/>
-      </svg>
-      <span class="logo-text">Callion Fishing<small>Charters · Marathon, FL</small></span>
-    </a>
+    <a href="#top" class="brand">Callion Fishing Charters</a>
     <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
     <nav class="nav-links" id="navLinks">
       <a href="#trips">Trips &amp; Prices</a>
@@ -314,126 +211,104 @@
       <a href="#videos">Videos</a>
       <a href="#reviews">Reviews</a>
       <a href="#faq">FAQ</a>
-      <a href="#bookForm" class="btn btn-coral">Book a Trip</a>
+      <a href="#bookForm" class="btn btn-gold">Book online</a>
     </nav>
   </div>
 </header>
 
 <main id="top">
 
-<!-- HERO -->
 <section class="hero">
-  <img class="hero-art" src="images/boat.jpg" alt="Two anglers on a center console boat at sunset off Marathon">
-  <div class="hero-shade"></div>
-  <div class="wrap">
-    <div class="hero-inner">
-      <span class="hero-badge"><span class="stars">★★★★★</span> 5.0 from 295 reviews</span>
-      <h1>Fish Marathon with a <em>Keys family</em></h1>
-      <p>Tarpon, sharks, flats and more with Captain John Callion, born and raised in the Keys. His family has fished these waters for four generations.</p>
-      <div class="hero-ctas">
-        <a href="#bookForm" class="btn btn-coral">Book your trip →</a>
-        <a href="#trips" class="btn btn-ghost">See trips &amp; prices</a>
-      </div>
+  <img src="images/boat.jpg" alt="Two anglers holding their catch on a center console at sunset off Marathon">
+  <div class="wrap hero-inner">
+    <h1>Callion Fishing<br>Charters</h1>
+    <div class="place">Marathon, Florida Keys · Since 1979</div>
+    <p>Tarpon, sharks, flats and more with Captain John Callion, born and raised in the Keys.</p>
+    <div class="hero-ctas">
+      <a href="#bookForm" class="btn btn-gold">Book online</a>
+      <a href="tel:+13053947991" class="btn btn-white">Call or text (305) 394-7991</a>
     </div>
   </div>
 </section>
 
-<!-- TRUST STRIP -->
-<div class="trust">
-  <div class="wrap trust-grid">
-    <div class="trust-item"><strong>Since 1979</strong><span>family-run in Marathon</span></div>
-    <div class="trust-item"><strong>4th gen</strong><span>Keys fishing family</span></div>
-    <div class="trust-item"><strong>5.0 ★</strong><span>295 guest reviews</span></div>
-    <div class="trust-item"><strong>Tournament</strong><span>winners: tarpon, bonefish &amp; more</span></div>
-  </div>
-</div>
-
-<!-- TRIPS -->
 <section id="trips">
   <div class="wrap">
-    <div class="trips-head">
-      <div>
-        <span class="eyebrow">Trips &amp; prices</span>
-        <h2>Pick your trip</h2>
-        <p class="lead">Every trip is the whole boat for your group, and each one can be tailored to what you want to catch.</p>
-      </div>
-      <a href="#bookForm" class="btn btn-outline">Check a date</a>
-    </div>
+    <h2>Trips &amp; Prices</h2>
+    <p class="intro">Every trip is the whole boat for your group, and each one can be tailored to what you want to catch.</p>
 
     <div class="trip-grid">
       <article class="trip">
-        <div class="trip-img"><img class="top" src="images/barracuda.jpg" alt="Angler holding a barracuda at sunset" loading="lazy"></div>
-        <span class="dur">4 hours · AM or PM</span>
-        <h3>Half Day Trip</h3>
-        <p>Bonefish, permit, snook, snapper, mackerel and more. Starts at 8 am or 1 pm.</p>
-        <div class="price">$900</div>
-        <div class="trip-meta">Up to 4 guests</div>
-        <a href="#bookForm" class="btn btn-outline" data-trip="half">Book this trip</a>
+        <img class="top" src="images/barracuda.jpg" alt="Angler holding a barracuda at sunset" loading="lazy">
+        <div class="trip-body">
+          <h3>Half Day</h3>
+          <div class="meta">4 hours · 8 am or 1 pm</div>
+          <p>Bonefish, permit, snook, snapper, mackerel and more.</p>
+          <div class="price">$900</div>
+          <div class="price-note">Up to 4 guests</div>
+          <a href="#bookForm" class="btn btn-line" data-trip="half">Book this trip</a>
+        </div>
       </article>
       <article class="trip">
-        <div class="trip-img"><img src="https://images.unsplash.com/photo-1761197379839-b5759e0146a0?auto=format&fit=crop&w=700&h=440&q=75" alt="Fishing rod over the water" loading="lazy"></div>
-        <span class="dur">4 hours</span>
-        <h3>Shark Fishing</h3>
-        <p>Hook into sharks on a half-day trip out of Marathon. Starts at 8 am.</p>
-        <div class="price">$800</div>
-        <div class="trip-meta">Up to 4 guests</div>
-        <a href="#bookForm" class="btn btn-outline" data-trip="shark">Book this trip</a>
-      </article>
-      <article class="trip feature">
-        <div class="trip-img"><img src="images/tarpon-bridge.jpg" alt="Two anglers holding a big tarpon near the Seven Mile Bridge" loading="lazy"></div>
-        <span class="dur">4 hours · Seasonal</span>
-        <h3>Tarpon Fishing</h3>
-        <p>Battle the Silver King with a tarpon tournament winner. Mornings at 6 am, afternoons at 4 pm.</p>
-        <div class="price">$900</div>
-        <div class="trip-meta">Up to 4 guests · Mar 20 – Jun 30</div>
-        <a href="#bookForm" class="btn btn-coral" data-trip="tarpon">Book this trip</a>
+        <img src="https://images.unsplash.com/photo-1761197379839-b5759e0146a0?auto=format&fit=crop&w=700&h=440&q=75" alt="Fishing rod over the water" loading="lazy">
+        <div class="trip-body">
+          <h3>Shark Fishing</h3>
+          <div class="meta">4 hours · 8 am</div>
+          <p>Hook into sharks on a half-day trip out of Marathon.</p>
+          <div class="price">$800</div>
+          <div class="price-note">Up to 4 guests</div>
+          <a href="#bookForm" class="btn btn-line" data-trip="shark">Book this trip</a>
+        </div>
       </article>
       <article class="trip">
-        <div class="trip-img"><img src="https://images.unsplash.com/photo-1760443996524-b2b90f060fca?auto=format&fit=crop&w=700&h=440&q=75" alt="Clear shallow water over the flats" loading="lazy"></div>
-        <span class="dur">5 hours · Seasonal</span>
-        <h3>Special Flats Fishing</h3>
-        <p>A small-group trip on the flats for two anglers. Starts at 8 am.</p>
-        <div class="price">$1,100</div>
-        <div class="trip-meta">2 guests max · Aug 1 – Oct 15</div>
-        <a href="#bookForm" class="btn btn-outline" data-trip="flats">Book this trip</a>
+        <img src="images/tarpon-bridge.jpg" alt="Two anglers holding a big tarpon near the Seven Mile Bridge" loading="lazy">
+        <div class="trip-body">
+          <h3>Tarpon</h3>
+          <div class="meta">4 hours · 6 am or 4 pm</div>
+          <p>Go after the Silver King with a tarpon tournament winner.</p>
+          <div class="price">$900</div>
+          <div class="price-note">Up to 4 guests · Mar 20 to Jun 30</div>
+          <a href="#bookForm" class="btn btn-line" data-trip="tarpon">Book this trip</a>
+        </div>
       </article>
       <article class="trip">
-        <div class="trip-img"><img src="https://images.unsplash.com/photo-1604064412467-af16406b5ba5?auto=format&fit=crop&w=700&h=440&q=75" alt="Boat silhouetted at sunset" loading="lazy"></div>
-        <span class="dur">6 hours</span>
-        <h3>6-Hour Morning</h3>
-        <p>More time on the water to chase several species in one trip. Starts at 8 am.</p>
-        <div class="price">$1,250</div>
-        <div class="trip-meta">Up to 4 guests</div>
-        <a href="#bookForm" class="btn btn-outline" data-trip="long">Book this trip</a>
+        <img src="https://images.unsplash.com/photo-1760443996524-b2b90f060fca?auto=format&fit=crop&w=700&h=440&q=75" alt="Clear shallow water over the flats" loading="lazy">
+        <div class="trip-body">
+          <h3>Special Flats</h3>
+          <div class="meta">5 hours · 8 am</div>
+          <p>A small-group trip on the flats for two anglers.</p>
+          <div class="price">$1,100</div>
+          <div class="price-note">2 guests max · Aug 1 to Oct 15</div>
+          <a href="#bookForm" class="btn btn-line" data-trip="flats">Book this trip</a>
+        </div>
+      </article>
+      <article class="trip">
+        <img src="https://images.unsplash.com/photo-1604064412467-af16406b5ba5?auto=format&fit=crop&w=700&h=440&q=75" alt="Boat on the water at sunset" loading="lazy">
+        <div class="trip-body">
+          <h3>6-Hour Morning</h3>
+          <div class="meta">6 hours · 8 am</div>
+          <p>More time on the water to chase several species in one trip.</p>
+          <div class="price">$1,250</div>
+          <div class="price-note">Up to 4 guests</div>
+          <a href="#bookForm" class="btn btn-line" data-trip="long">Book this trip</a>
+        </div>
       </article>
     </div>
 
-    <div class="trip-notes">
-      <span>Licenses, bait, rods &amp; lures included</span>
-      <span>Fly fishing gear if you want it</span>
-      <span>Your keeper fish cleaned &amp; filleted</span>
-    </div>
+    <p class="trip-foot">All trips include fishing licenses, bait, rods and lures, fly fishing gear if you want it, and cleaning and filleting of your keeper fish.</p>
   </div>
 </section>
 
-<!-- BOOK -->
-<section class="book" id="book">
+<section id="book">
   <div class="wrap book-grid">
     <div>
-      <span class="eyebrow">Book direct</span>
-      <h2>Reserve your date in two minutes</h2>
-      <p class="lead">Pick your trip and date, then pay a deposit online. Your booking goes straight to Captain John, with no middleman.</p>
-      <ul class="why-direct">
-        <li><span class="n">1</span><div><b>Choose your trip &amp; date</b><span>See your price right away. No quotes, no waiting.</span></div></li>
-        <li><span class="n">2</span><div><b>Pay the deposit</b><span>Secure card checkout. The rest is due on the day of your trip.</span></div></li>
-        <li><span class="n">3</span><div><b>John confirms the details</b><span>He'll reach out to confirm your trip and where to meet.</span></div></li>
-      </ul>
-      <p style="color:var(--muted)">Rather talk it through? Call or text <a href="tel:+13053947991"><b>(305) 394-7991</b></a> or email <a href="mailto:Johncallionfishing@gmail.com">Johncallionfishing@gmail.com</a>.</p>
+      <h2>Book Online</h2>
+      <p class="intro">Pick your trip and date and pay a deposit to hold it. The rest is due on the day of your trip, and your booking goes straight to Captain John.</p>
+      <p>Rather talk it through? Call or text <a href="tel:+13053947991"><b>(305) 394-7991</b></a> or email <a href="mailto:Johncallionfishing@gmail.com">Johncallionfishing@gmail.com</a>.</p>
     </div>
 
     <form class="form-card" id="bookForm" novalidate>
       <h3>Book your trip</h3>
-      <div class="row2 row-trip">
+      <div class="row2">
         <div class="field">
           <label for="trip">Trip</label>
           <select id="trip" required>
@@ -444,7 +319,7 @@
             <option value="long">6-Hour Morning · $1,250</option>
           </select>
         </div>
-        <div class="field" id="styleField">
+        <div class="field">
           <label for="style">Start time</label>
           <select id="style"></select>
         </div>
@@ -456,7 +331,7 @@
           <div class="err" id="dateErr"></div>
         </div>
         <div class="field">
-          <label>Guests <span class="lbl-hint" id="guestHint">· max 4</span></label>
+          <label>Guests <span class="muted" id="guestHint">(max 4)</span></label>
           <div class="stepper">
             <button type="button" id="minus" aria-label="Fewer guests">−</button>
             <output id="guests" aria-live="polite">2</output>
@@ -480,57 +355,43 @@
           <input id="email" type="email" autocomplete="email" required>
         </div>
         <div class="field">
-          <label for="notes">Notes <span class="lbl-hint">(optional)</span></label>
-          <input id="notes" placeholder="Target species, kids' ages…">
+          <label for="notes">Notes <span class="muted">(optional)</span></label>
+          <input id="notes" placeholder="Target species, kids' ages">
         </div>
       </div>
 
       <div class="summary">
-        <div class="line"><span id="sumTrip">Half Day Trip (4 hrs)</span><span id="sumPrice">$900</span></div>
-        <div class="line total"><span>Deposit due today</span><b id="sumDeposit">$200</b></div>
-        <small><span id="sumBalance">$700</span> balance on the day · free cancellation up to 1 day before</small>
+        <div class="line"><span id="sumTrip">Half Day (4 hrs, 8:00 AM)</span><span id="sumPrice">$900</span></div>
+        <div class="line total"><span>Deposit due today</span><span id="sumDeposit">$200</span></div>
+        <small><span id="sumBalance">$700</span> balance on the day. Free cancellation up to 1 day before.</small>
       </div>
 
-      <button class="btn btn-coral" type="submit" id="payBtn">Pay $200 deposit &amp; book →</button>
-      <div class="secure">🔒 Secure checkout · paid directly to Callion Fishing Charters</div>
+      <button class="btn btn-gold" type="submit" id="payBtn">Pay $200 deposit and book</button>
+      <div class="secure">Secure card checkout. Paid directly to Callion Fishing Charters.</div>
     </form>
   </div>
 </section>
 
-<!-- CAPTAIN -->
-<section class="captains" id="captain">
+<section id="captain">
   <div class="wrap split">
-    <div class="photo-stack">
-      <div class="ph"><img src="images/tarpon-release.jpg" alt="Angler holding a large tarpon beside the boat" loading="lazy"></div>
-      <div class="ph"><img src="images/tarpon-bridge.jpg" alt="Two anglers holding a big tarpon near the Seven Mile Bridge" loading="lazy"></div>
-      <div class="ph"><img src="images/sunset-hookup.jpg" alt="Angler fighting a fish at sunset" loading="lazy"></div>
+    <div class="photos">
+      <img src="images/tarpon-release.jpg" alt="Angler holding a large tarpon beside the boat" loading="lazy">
+      <img src="images/tarpon-bridge.jpg" alt="Two anglers holding a big tarpon near the Seven Mile Bridge" loading="lazy">
+      <img src="images/sunset-hookup.jpg" alt="Angler fighting a fish at sunset" loading="lazy">
     </div>
     <div>
-      <span class="eyebrow">Meet your captain</span>
       <h2>Captain John Callion</h2>
-      <p class="lead">A proud 4th-generation Keys fishing family, with roots that run deep in the waters of Marathon. John was born and raised in the Keys and carries on a family tradition that began in the 1950s.</p>
-      <p>Together with Jack Callion, he has run Callion Fishing Charters since its founding in 1979. The family has won numerous tournaments for tarpon, bonefish, sailfish and shark, and has been featured on TV fishing shows alongside some of the biggest names in the sport. Book with a local, and fish the Keys the way the locals do.</p>
-      <ul class="checklist">
-        <li>Born &amp; raised in the Keys</li>
-        <li>Family-run since 1979</li>
-        <li>Tarpon tournament winner</li>
-        <li>Featured on TV fishing shows</li>
-        <li>Fly fishing gear available</li>
-        <li>Child friendly</li>
-      </ul>
-      <div class="sig">See you on the water! Captain John</div>
+      <p class="intro">We're a proud 4th-generation Keys fishing family, with roots that run deep in the waters of Marathon. John was born and raised in the Keys and carries on a family tradition that began in the 1950s.</p>
+      <p>Together with Jack Callion, he has run Callion Fishing Charters since its founding in 1979. The family has won numerous tournaments for tarpon, bonefish, sailfish and shark, and has been featured on TV fishing shows alongside some of the biggest names in the sport.</p>
+      <p>In a town that's seen plenty of out-of-town guides move in, fishing with Callion means fishing with a local family.</p>
     </div>
   </div>
 </section>
 
-<!-- VIDEOS -->
 <section id="videos">
   <div class="wrap">
-    <div class="videos-head">
-      <span class="eyebrow">Videos</span>
-      <h2>See it for yourself</h2>
-      <p class="lead">A few clips from the boat.</p>
-    </div>
+    <h2>Videos</h2>
+    <p class="intro">A few clips from the boat.</p>
     <div class="video-grid">
       <figure class="vid-card">
         <button class="vid" type="button" data-vimeo="1033189160" data-h="6fd8f50c97" aria-label="Play video: Bow to the king!"><img src="images/video-king.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span></button>
@@ -548,21 +409,10 @@
   </div>
 </section>
 
-<!-- BOATS -->
 <section id="boat">
   <div class="wrap">
-    <div class="boat-head">
-      <div>
-        <span class="eyebrow">Our boats</span>
-        <h2>Custom built by the Captain</h2>
-        <p class="lead">Our 25' LTB was custom built by the Capt. and can hold up to 4 passengers.</p>
-      </div>
-      <div class="specs">
-        <div class="spec"><b>25 ft</b><span>custom LTB</span></div>
-        <div class="spec"><b>Up to 4</b><span>passengers</span></div>
-        <div class="spec"><b>Built</b><span>by the Captain</span></div>
-      </div>
-    </div>
+    <h2>Our Boats</h2>
+    <p class="intro">Our 25' LTB was custom built by the Capt. and can hold up to 4 passengers.</p>
     <div class="boat-gallery">
       <img class="wide" src="images/boat-sandbar.jpg" alt="The 25-foot LTB anchored off a sandbar in clear water" loading="lazy">
       <img src="images/boat-dock.jpg" alt="The LTB tied up at the dock" loading="lazy">
@@ -572,117 +422,99 @@
   </div>
 </section>
 
-<!-- INCLUDED -->
-<section class="included">
+<section id="included">
   <div class="wrap">
-    <span class="eyebrow">Before you go</span>
-    <h2>What's included</h2>
-    <p class="lead">Everything you need to fish is on the boat. Just bring your crew.</p>
-    <div class="inc-grid">
-      <div class="inc-card">
-        <h3>We provide</h3>
-        <ul>
-          <li>Fishing licenses</li><li>Live bait</li><li>Rods &amp; reels</li><li>Lures</li>
-          <li>Fly fishing gear</li><li>Icebox</li><li>Catch cleaning</li><li>Local knowledge</li>
+    <h2>What's Included</h2>
+    <p class="intro">Everything you need to fish is on the boat.</p>
+    <div class="two-col">
+      <div>
+        <h3>On the boat</h3>
+        <ul class="plain-list">
+          <li>Fishing licenses for your whole party</li>
+          <li>Live bait, rods, reels and lures</li>
+          <li>Fly fishing gear if you want it</li>
+          <li>An icebox for your catch</li>
+          <li>Your keeper fish cleaned and filleted</li>
         </ul>
       </div>
-      <div class="inc-card">
+      <div>
         <h3>Good to know</h3>
-        <ul>
-          <li>The whole boat is yours</li><li>Up to 4 guests</li>
-          <li>Flats trips: 2 anglers</li><li>You keep your catch</li>
+        <ul class="plain-list">
+          <li>The whole boat is yours, up to 4 guests</li>
+          <li>Special Flats trips are 2 anglers max</li>
+          <li>You keep your catch</li>
+          <li>Tarpon trips run from late March through June</li>
+          <li>Kids are welcome</li>
         </ul>
-        <p class="inc-note"><b>Tarpon season</b> runs from late March through June.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- REVIEWS -->
 <section id="reviews">
   <div class="wrap">
-    <div class="reviews-head">
-      <div>
-        <span class="eyebrow">Guest reviews</span>
-        <h2>What anglers say</h2>
-      </div>
-      <div class="rating-big"><b>5.0</b><div><span class="stars">★★★★★</span><small>from 295 reviews</small></div></div>
-    </div>
+    <h2>Reviews</h2>
+    <p class="rating"><span class="stars">★★★★★</span> <b>5.0</b> from 295 reviews on FishingBooker</p>
     <div class="review-grid">
       <article class="review">
         <span class="stars">★★★★★</span>
         <h3>Great Trip!</h3>
         <blockquote>“Captain John worked hard to give us the best opportunity for success. ... His boat and gear were top notch and we had two successful trips with him.”</blockquote>
-        <footer><span class="avatar">J</span><div><b>Joshua</b>Pennsylvania · Morning Tarpon, Jun 2026</div></footer>
+        <div class="who"><b>Joshua</b>, Pennsylvania · Morning Tarpon, June 2026</div>
       </article>
       <article class="review">
         <span class="stars">★★★★★</span>
         <h3>Highlight of our vacation!!</h3>
         <blockquote>“Fishing with Captain John was the biggest highlight of our 10 day vacation! He worked hard and got us on tarpon.”</blockquote>
-        <footer><span class="avatar">E</span><div><b>Eva</b>Washington State · Afternoon Tarpon, Apr 2026</div></footer>
+        <div class="who"><b>Eva</b>, Washington State · Afternoon Tarpon, April 2026</div>
       </article>
       <article class="review">
         <span class="stars">★★★★★</span>
         <h3>Great Trip</h3>
         <blockquote>“Even with poor weather and murky water, we had a great trip and caught plenty of fish. ... My teenage sons really liked catching a variety of fish, even a monster barracuda!”</blockquote>
-        <footer><span class="avatar">E</span><div><b>Eva</b>Ohio · Morning Tarpon, Apr 2026</div></footer>
+        <div class="who"><b>Eva</b>, Ohio · Morning Tarpon, April 2026</div>
       </article>
       <article class="review">
         <span class="stars">★★★★★</span>
         <h3>The Perfect experience</h3>
         <blockquote>“John was patient and had a great sense of humor while also being very chill and relaxed in personality. It was very obvious that he knows the waters very well.”</blockquote>
-        <footer><span class="avatar">C</span><div><b>Cristy</b>Florida · Half Day, Mar 2024</div></footer>
+        <div class="who"><b>Cristy</b>, Florida · Half Day, March 2024</div>
       </article>
     </div>
   </div>
 </section>
 
-<!-- FAQ -->
 <section id="faq">
-  <div class="wrap faq-grid">
-    <div>
-      <span class="eyebrow">Good to know</span>
-      <h2>Cancellation policy</h2>
-      <div class="policy">
-        <ol>
-          <li><span class="when">At booking</span><span>A deposit holds your date.</span></li>
-          <li><span class="when">1+ day out</span><span>Free cancellation.</span></li>
-          <li><span class="when">On the day</span><span>The balance is due on the day of your trip.</span></li>
-        </ol>
-      </div>
-    </div>
-    <div>
-      <span class="eyebrow">FAQ</span>
-      <h2>Questions, answered</h2>
-      <details open>
-        <summary>How do I book a trip?</summary>
-        <p>Book online above with a deposit, or call or text Captain John at (305) 394-7991. You can also email Johncallionfishing@gmail.com.</p>
-      </details>
-      <details>
-        <summary>How many people can come?</summary>
-        <p>Up to 4 guests. The Special Flats trip is 2 anglers max.</p>
-      </details>
-      <details>
-        <summary>When is tarpon season?</summary>
-        <p>Afternoon tarpon trips run from March 20 and morning trips from April 1, both through June 30.</p>
-      </details>
-      <details>
-        <summary>Do I need a fishing license?</summary>
-        <p>No. Licenses for your whole party are covered, along with bait, rods and lures.</p>
-      </details>
-      <details>
-        <summary>Can I keep my fish?</summary>
-        <p>Yes. Captain John cleans and fillets your keeper fish when you're done.</p>
-      </details>
-      <details>
-        <summary>Is it good for kids?</summary>
-        <p>Yes. Trips are child friendly, and 95% of reviewers call the trip family friendly.</p>
-      </details>
-      <details>
-        <summary>Where do we meet?</summary>
-        <p>Callion Fishing Charters is at 11833 Overseas Highway in Marathon. Captain John confirms where to meet when you book.</p>
-      </details>
-    </div>
+  <div class="wrap faq">
+    <h2>FAQ</h2>
+    <details open>
+      <summary>How do I book a trip?</summary>
+      <p>Book online above with a deposit, or call or text Captain John at (305) 394-7991. You can also email Johncallionfishing@gmail.com.</p>
+    </details>
+    <details>
+      <summary>What's the cancellation policy?</summary>
+      <p>A deposit holds your date. You can cancel for free up to 1 day before your trip. The balance is due on the day of your trip.</p>
+    </details>
+    <details>
+      <summary>How many people can come?</summary>
+      <p>Up to 4 guests. The Special Flats trip is 2 anglers max.</p>
+    </details>
+    <details>
+      <summary>When is tarpon season?</summary>
+      <p>Afternoon tarpon trips run from March 20 and morning trips from April 1, both through June 30.</p>
+    </details>
+    <details>
+      <summary>Do I need a fishing license?</summary>
+      <p>No. Licenses for your whole party are covered, along with bait, rods and lures.</p>
+    </details>
+    <details>
+      <summary>Can I keep my fish?</summary>
+      <p>Yes. Captain John cleans and fillets your keeper fish when you're done.</p>
+    </details>
+    <details>
+      <summary>Where do we meet?</summary>
+      <p>Callion Fishing Charters is at 11833 Overseas Highway in Marathon. Captain John confirms where to meet when you book.</p>
+    </details>
   </div>
 </section>
 
@@ -692,59 +524,51 @@
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <div class="foot-cta">Ready to fish Marathon?</div>
-        <a href="#bookForm" class="btn btn-coral">Book your trip →</a>
+        <a href="#top" class="brand">Callion Fishing Charters</a>
+        <div>Marathon, Florida Keys · Since 1979</div>
       </div>
       <div>
-        <h3>Contact</h3>
-        <div class="contact-line">📞 <a href="tel:+13053947991">(305) 394-7991</a></div>
-        <div class="contact-line">✉️ <a href="mailto:Johncallionfishing@gmail.com">Johncallionfishing@gmail.com</a></div>
-        <div class="contact-line">📍 11833 Overseas Highway, Marathon, FL</div>
-        <div class="social">
-          <a href="https://www.facebook.com/Callionfishingcharters">Facebook</a>
-          <a href="https://www.instagram.com/Callionfishingcharters">Instagram</a>
-          <a href="https://www.youtube.com/Callionfishingcharters">YouTube</a>
-          <a href="https://www.tiktok.com/@Callionfishingcharters">TikTok</a>
-        </div>
+        <h4>Contact</h4>
+        <div class="foot-line">Call or text <a href="tel:+13053947991">(305) 394-7991</a></div>
+        <div class="foot-line"><a href="mailto:Johncallionfishing@gmail.com">Johncallionfishing@gmail.com</a></div>
+        <div class="foot-line">11833 Overseas Highway, Marathon, FL 33050</div>
       </div>
       <div>
-        <h3>Explore</h3>
-        <div class="contact-line"><a href="#trips">Trips &amp; prices</a></div>
-        <div class="contact-line"><a href="#captain">Your captain</a></div>
-        <div class="contact-line"><a href="#boat">Our boats</a></div>
-        <div class="contact-line"><a href="#videos">Videos</a></div>
-        <div class="contact-line"><a href="#faq">FAQ &amp; policies</a></div>
+        <h4>Follow</h4>
+        <div class="foot-line"><a href="https://www.facebook.com/Callionfishingcharters">Facebook</a></div>
+        <div class="foot-line"><a href="https://www.instagram.com/Callionfishingcharters">Instagram</a></div>
+        <div class="foot-line"><a href="https://www.youtube.com/Callionfishingcharters">YouTube</a></div>
+        <div class="foot-line"><a href="https://www.tiktok.com/@Callionfishingcharters">TikTok</a></div>
       </div>
     </div>
     <div class="copy">
-      <span>© 2026 Callion Fishing Charters · Marathon, Florida Keys</span>
-      <span>Family-run since 1979 · Photos: Callion Fishing Charters · a few samples via Unsplash</span>
+      <span>© 2026 Callion Fishing Charters</span>
+      <span>Some sample photos via Unsplash</span>
     </div>
   </div>
 </footer>
 
 <div class="mobile-cta">
-  <a href="tel:+13053947991" class="btn call">📞 Call</a>
-  <a href="#bookForm" class="btn btn-coral">Book a Trip</a>
+  <a href="tel:+13053947991" class="btn btn-line">Call</a>
+  <a href="#bookForm" class="btn btn-gold">Book online</a>
 </div>
 
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
   <div class="modal-card">
-    <div class="big">🎣</div>
     <h3 id="modalTitle">This is where checkout opens</h3>
     <p id="modalBody"></p>
-    <p style="font-size:.88rem">On the live site this button opens secure card checkout. The deposit goes straight to your account, and you get an email with the booking details.</p>
-    <button class="btn btn-coral" id="modalClose" style="width:100%;justify-content:center">Got it</button>
+    <p style="font-size:.92rem">On the live site this button opens secure card checkout. The deposit goes straight to your account, and you get an email with the booking details.</p>
+    <button class="btn btn-gold" id="modalClose" style="width:100%">Got it</button>
   </div>
 </div>
 
 <script>
   const DEPOSIT = 200; // placeholder until John sets his own
   const TRIPS = {
-    half:{name:'Half Day Trip',hrs:4,price:900,times:['8:00 AM','1:00 PM']},
+    half:{name:'Half Day',hrs:4,price:900,times:['8:00 AM','1:00 PM']},
     shark:{name:'Shark Fishing',hrs:4,price:800,times:['8:00 AM']},
-    tarpon:{name:'Tarpon Fishing',hrs:4,price:900,times:['6:00 AM','4:00 PM'],season:{'6:00 AM':['04-01','06-30'],'4:00 PM':['03-20','06-30']}},
-    flats:{name:'Special Flats Fishing',hrs:5,price:1100,max:2,times:['8:00 AM'],season:{'8:00 AM':['08-01','10-15']}},
+    tarpon:{name:'Tarpon',hrs:4,price:900,times:['6:00 AM','4:00 PM'],season:{'6:00 AM':['04-01','06-30'],'4:00 PM':['03-20','06-30']}},
+    flats:{name:'Special Flats',hrs:5,price:1100,max:2,times:['8:00 AM'],season:{'8:00 AM':['08-01','10-15']}},
     long:{name:'6-Hour Morning',hrs:6,price:1250,times:['8:00 AM']}
   };
   const $ = id => document.getElementById(id);
@@ -779,12 +603,12 @@
     $('guests').textContent = guests;
     $('minus').disabled = guests <= 1;
     $('plus').disabled = guests >= max;
-    $('guestHint').textContent = '· max ' + max;
+    $('guestHint').textContent = `(max ${max})`;
     $('sumTrip').textContent = `${trip.name} (${trip.hrs} hrs, ${$('style').value})`;
     $('sumPrice').textContent = fmt(trip.price);
     $('sumDeposit').textContent = fmt(DEPOSIT);
     $('sumBalance').textContent = fmt(trip.price - DEPOSIT);
-    $('payBtn').textContent = `Pay ${fmt(DEPOSIT)} deposit & book →`;
+    $('payBtn').textContent = `Pay ${fmt(DEPOSIT)} deposit and book`;
     checkDate();
   }
   function checkDate(){
