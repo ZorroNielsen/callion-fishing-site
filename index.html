@@ -56,6 +56,8 @@
   .menu-btn{display:none;background:none;border:0;padding:8px;cursor:pointer}
   .menu-btn span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0;border-radius:2px}
 
+  main > section:not(.hero):not(.book){border-top:1px solid var(--line)}
+
   /* hero */
   .hero{position:relative;color:#fff;padding:0;overflow:hidden;background:var(--sea-deep)}
   .hero-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% center}
@@ -73,7 +75,7 @@
   .stars{color:#ffd166;letter-spacing:1px}
 
   /* trust strip */
-  .trust{background:var(--sand);padding:0;border-bottom:1px solid var(--line)}
+  .trust{background:var(--white);padding:0;border-bottom:1px solid var(--line)}
   .trust-grid{display:grid;grid-template-columns:repeat(4,1fr)}
   .trust-item{padding:26px 18px;text-align:center;border-right:1px solid var(--line)}
   .trust-item:last-child{border-right:0}
@@ -93,17 +95,14 @@
   .trip-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
   .trip:hover .trip-img img{transform:scale(1.05)}
   .trip{overflow:hidden}
-  .trip .dur{display:inline-block;align-self:flex-start;background:var(--shallow);color:var(--sea-deep);font-weight:700;font-size:.78rem;padding:4px 12px;border-radius:999px;margin-bottom:16px}
-  .trip.feature{background:var(--sea);color:#fff;border-color:var(--sea)}
-  .trip.feature .dur{background:var(--coral);color:var(--ink)}
-  .trip.feature .trip-meta,.trip.feature p{color:#c9d7e6}
-  .trip h3{margin-bottom:.35em;font-size:1.15rem}
+  .trip .dur{display:inline-block;align-self:flex-start;background:var(--sand);color:var(--sea-deep);font-weight:700;font-size:.78rem;padding:4px 12px;border-radius:999px;margin-bottom:16px}
+  .trip.feature{border:2px solid var(--sea)}
+      .trip h3{margin-bottom:.35em;font-size:1.15rem}
   .trip p{color:var(--muted);font-size:.95rem;flex:1}
   .price{font-family:Fraunces,serif;font-size:2.1rem;font-weight:700;line-height:1;margin:14px 0 6px}
   .trip-meta{font-size:.84rem;color:var(--muted);margin-bottom:18px}
   .trip .btn{justify-content:center;padding:11px 18px;font-size:.95rem}
-  .trip.feature .btn-outline{color:#fff;border-color:rgba(255,255,255,.7)}
-  .trip-notes{margin-top:26px;display:flex;flex-wrap:wrap;gap:10px 26px;font-size:.9rem;color:var(--muted)}
+    .trip-notes{margin-top:26px;display:flex;flex-wrap:wrap;gap:10px 26px;font-size:.9rem;color:var(--muted)}
   .trip-notes span::before{content:"•";color:var(--coral-dk);margin-right:8px}
 
   /* photo placeholders */
@@ -117,7 +116,7 @@
   .ph-label{position:relative;margin:14px;background:rgba(13,27,42,.72);color:#fff;font-size:.78rem;font-weight:600;padding:6px 12px;border-radius:999px;display:inline-flex;align-items:center;gap:6px}
 
   /* captains */
-  .captains{background:var(--sand)}
+  .captains{background:var(--white)}
   .split{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
   .photo-stack{display:grid;grid-template-columns:1.3fr 1fr;grid-template-rows:200px 200px;gap:14px}
   .photo-stack .ph:first-child{grid-row:span 2;min-height:0}
@@ -130,7 +129,7 @@
   /* boat */
   .boat-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:start}
   .specs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:26px 0}
-  .spec{background:var(--sand);border-radius:14px;padding:16px}
+  .spec{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px}
   .spec b{display:block;font-family:Fraunces,serif;font-size:1.35rem;color:var(--sea)}
   .spec span{font-size:.8rem;color:var(--muted);font-weight:600}
   .features{columns:2;column-gap:24px;padding:0;list-style:none;margin:0}
@@ -139,16 +138,32 @@
   .boat-photos .ph:first-child{min-height:320px}
   .boat-photos .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 
+  /* videos */
+  .video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:920px}
+  .vid-card{margin:0}
+  .vid{position:relative;display:block;width:100%;aspect-ratio:9/16;border:0;padding:0;border-radius:var(--radius);overflow:hidden;cursor:pointer;background:var(--ink)}
+  .vid img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+  .vid:hover img{transform:scale(1.03)}
+  .vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .play{position:absolute;left:50%;top:50%;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;background:rgba(255,255,255,.94);box-shadow:0 8px 24px rgba(0,0,0,.25)}
+  .play::after{content:"";position:absolute;left:25px;top:20px;border-left:19px solid var(--ink);border-top:12px solid transparent;border-bottom:12px solid transparent}
+  .vid-card figcaption{font-family:Fraunces,serif;font-weight:700;font-size:1.15rem;margin-top:12px}
+
+  /* boat gallery */
+  .boat-head{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:end;margin-bottom:36px}
+  .boat-head .specs{margin:0}
+  .boat-gallery{display:grid;grid-template-columns:1.9fr 1fr 1fr 1fr;gap:14px;height:420px}
+  .boat-gallery img{width:100%;height:100%;object-fit:cover;border-radius:var(--radius);display:block}
+
   /* included */
-  .included{background:var(--sea-deep);color:#fff}
-  .included .lead{color:#b8c8da}
-  .inc-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px}
-  .inc-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);padding:30px}
-  .inc-card h3{color:var(--shallow)}
+  .included{background:var(--white)}
+    .inc-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px}
+  .inc-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px}
+  .inc-card h3{color:var(--ink)}
   .inc-card ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:10px 18px}
   .inc-card li{padding-left:22px;position:relative}
   .inc-card li::before{content:"";position:absolute;left:0;top:.62em;width:9px;height:9px;border-radius:50%;background:var(--coral)}
-  .inc-note{margin-top:20px;font-size:.88rem;color:#b8c8da;border-top:1px solid rgba(255,255,255,.12);padding-top:16px}
+  .inc-note{margin-top:20px;font-size:.88rem;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
 
   /* reviews */
   .reviews-head{display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:20px;margin-bottom:40px}
@@ -161,11 +176,11 @@
   .review h3{font-size:1.12rem}
   .review blockquote{margin:0 0 18px;color:#2f4448}
   .review footer{display:flex;align-items:center;gap:12px;font-size:.88rem;color:var(--muted)}
-  .avatar{width:40px;height:40px;border-radius:50%;background:var(--shallow);color:var(--sea-deep);display:grid;place-items:center;font-weight:700}
+  .avatar{width:40px;height:40px;border-radius:50%;background:var(--sand);color:var(--sea-deep);display:grid;place-items:center;font-weight:700}
   .review footer b{color:var(--ink);display:block}
 
   /* booking */
-  .book{background:linear-gradient(180deg,var(--white) 0%,var(--sand) 100%);padding-top:40px}
+  .book{background:var(--white);padding-top:40px}
   .book-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:56px;align-items:start}
   .why-direct{list-style:none;padding:0;margin:26px 0}
   .why-direct li{display:flex;gap:14px;margin-bottom:18px}
@@ -199,7 +214,7 @@
 
   /* policy / faq */
   .faq-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:60px}
-  .policy{background:var(--sand);border-radius:var(--radius);padding:28px}
+  .policy{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px}
   .policy ol{list-style:none;padding:0;margin:0}
   .policy li{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
   .policy li:last-child{border:0}
@@ -238,6 +253,12 @@
     .trust-item:nth-child(2){border-right:0}
     .trust-item:nth-child(-n+2){border-bottom:1px solid var(--line)}
     .review-grid{grid-template-columns:1fr}
+    .video-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -20px;padding:4px 20px 12px;scroll-padding:0 20px}
+    .vid-card{flex:0 0 62%;scroll-snap-align:start}
+    .boat-head{grid-template-columns:1fr;gap:24px}
+    .boat-gallery{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;height:340px;margin:0 -20px;padding:0 20px;scroll-padding:0 20px}
+    .boat-gallery img{flex:0 0 auto;width:auto;aspect-ratio:3/4;scroll-snap-align:start}
+    .boat-gallery img.wide{aspect-ratio:4/3}
     .foot-grid{grid-template-columns:1fr}
     .nav-links{position:absolute;top:70px;left:0;right:0;background:var(--white);flex-direction:column;align-items:stretch;gap:0;padding:10px 20px 20px;border-bottom:1px solid var(--line);display:none}
     .nav-links.open{display:flex}
@@ -285,7 +306,8 @@
     <nav class="nav-links" id="navLinks">
       <a href="#trips">Trips &amp; Prices</a>
       <a href="#captain">Captain</a>
-      <a href="#boat">The Boat</a>
+      <a href="#boat">Boats</a>
+      <a href="#videos">Videos</a>
       <a href="#reviews">Reviews</a>
       <a href="#faq">FAQ</a>
       <a href="#bookForm" class="btn btn-coral">Book a Trip</a>
@@ -336,7 +358,7 @@
 
     <div class="trip-grid">
       <article class="trip">
-        <div class="trip-img"><img src="https://images.unsplash.com/photo-1578005983174-90424f1b81e7?auto=format&fit=crop&w=700&h=440&q=75" alt="Anglers fishing off the back of a boat" loading="lazy"></div>
+        <div class="trip-img"><img class="top" src="images/barracuda.jpg" alt="Angler holding a barracuda at sunset" loading="lazy"></div>
         <span class="dur">4 hours · AM or PM</span>
         <h3>Half Day Trip</h3>
         <p>Bonefish, permit, snook, snapper, mackerel and more. Starts at 8 am or 1 pm.</p>
@@ -497,33 +519,53 @@
   </div>
 </section>
 
-<!-- BOAT -->
-<section id="boat">
-  <div class="wrap boat-grid">
-    <div>
-      <span class="eyebrow">The boat</span>
-      <h2>A 25' SeaVee, built to fish</h2>
-      <p class="lead">A seaworthy center console with the electronics, bait and room to put you on fish.</p>
-      <div class="specs">
-        <div class="spec"><b>25 ft</b><span>SeaVee center console</span></div>
-        <div class="spec"><b>300 hp</b><span>Suzuki</span></div>
-        <div class="spec"><b>4 + 1</b><span>adult anglers + a kid</span></div>
+<!-- VIDEOS -->
+<section id="videos">
+  <div class="wrap">
+    <div class="trips-head">
+      <div>
+        <span class="eyebrow">Videos</span>
+        <h2>See it for yourself</h2>
+        <p class="lead">A few clips from the boat.</p>
       </div>
-      <ul class="features">
-        <li>GPS</li>
-        <li>Fishfinder</li>
-        <li>Livewell loaded with bait</li>
-        <li>Icebox to keep your catch fresh</li>
-        <li>Quality rods, reels &amp; lures</li>
-        <li>Fly fishing equipment if needed</li>
-      </ul>
     </div>
-    <div class="boat-photos">
-      <div class="ph"><img src="images/barracuda.jpg" alt="The boat's deck with an angler holding a barracuda" loading="lazy" style="object-position:center 30%"></div>
-      <div class="row">
-        <div class="ph"><img src="https://images.unsplash.com/photo-1722547083154-a6a3038d43b3?auto=format&fit=crop&w=600&q=75" alt="Boat crossing the water at sunset" loading="lazy"><span class="ph-label">Sample photo</span></div>
-        <div class="ph"><img src="https://images.unsplash.com/photo-1567517412043-7b2c07aa08f4?auto=format&fit=crop&w=600&q=75" alt="A freshly caught fish held over the water" loading="lazy"><span class="ph-label">Sample photo</span></div>
+    <div class="video-grid">
+      <figure class="vid-card">
+        <button class="vid" type="button" data-vimeo="1033189160" data-h="6fd8f50c97" aria-label="Play video: Bow to the king!"><img src="images/video-king.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span></button>
+        <figcaption>Bow to the king!</figcaption>
+      </figure>
+      <figure class="vid-card">
+        <button class="vid" type="button" data-vimeo="1033313047" data-h="bcc9c62041" aria-label="Play video: We always have the freshest bait!"><img src="images/video-bait.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span></button>
+        <figcaption>We always have the freshest bait!</figcaption>
+      </figure>
+      <figure class="vid-card">
+        <button class="vid" type="button" data-vimeo="1035825023" data-h="ca28cf8994" aria-label="Play video: This could be you!"><img src="images/video-you.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span></button>
+        <figcaption>This could be you!</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- BOATS -->
+<section id="boat">
+  <div class="wrap">
+    <div class="boat-head">
+      <div>
+        <span class="eyebrow">Our boats</span>
+        <h2>Custom built by the Captain</h2>
+        <p class="lead">Our 25' LTB was custom built by the Capt. and can hold up to 4 passengers.</p>
       </div>
+      <div class="specs">
+        <div class="spec"><b>25 ft</b><span>custom LTB</span></div>
+        <div class="spec"><b>Up to 4</b><span>passengers</span></div>
+        <div class="spec"><b>Built</b><span>by the Captain</span></div>
+      </div>
+    </div>
+    <div class="boat-gallery">
+      <img class="wide" src="images/boat-sandbar.jpg" alt="The 25-foot LTB anchored off a sandbar in clear water" loading="lazy">
+      <img src="images/boat-dock.jpg" alt="The LTB tied up at the dock" loading="lazy">
+      <img src="images/boat-running.jpg" alt="The LTB running with anglers aboard" loading="lazy">
+      <img src="images/boat-skiff.jpg" alt="A flats skiff on its trailer" loading="lazy">
     </div>
   </div>
 </section>
@@ -531,7 +573,7 @@
 <!-- INCLUDED -->
 <section class="included">
   <div class="wrap">
-    <span class="eyebrow" style="color:var(--coral)">Before you go</span>
+    <span class="eyebrow">Before you go</span>
     <h2>What's included</h2>
     <p class="lead">Everything you need to fish is on the boat. Just bring your crew.</p>
     <div class="inc-grid">
@@ -545,7 +587,7 @@
       <div class="inc-card">
         <h3>Good to know</h3>
         <ul>
-          <li>The whole boat is yours</li><li>Up to 4 adults + 1 kid</li>
+          <li>The whole boat is yours</li><li>Up to 4 guests</li>
           <li>Flats trips: 2 anglers</li><li>You keep your catch</li>
         </ul>
         <p class="inc-note"><b>Tarpon season</b> runs from late March through June.</p>
@@ -616,7 +658,7 @@
       </details>
       <details>
         <summary>How many people can come?</summary>
-        <p>Up to 4 adult anglers plus one kid. The Special Flats trip is 2 anglers max.</p>
+        <p>Up to 4 guests. The Special Flats trip is 2 anglers max.</p>
       </details>
       <details>
         <summary>When is tarpon season?</summary>
@@ -667,7 +709,8 @@
         <h3>Explore</h3>
         <div class="contact-line"><a href="#trips">Trips &amp; prices</a></div>
         <div class="contact-line"><a href="#captain">Your captain</a></div>
-        <div class="contact-line"><a href="#boat">The boat</a></div>
+        <div class="contact-line"><a href="#boat">Our boats</a></div>
+        <div class="contact-line"><a href="#videos">Videos</a></div>
         <div class="contact-line"><a href="#faq">FAQ &amp; policies</a></div>
       </div>
     </div>
@@ -775,6 +818,14 @@
     $('modalBody').innerHTML = `<b>${trip.name}</b> at ${$('style').value} for ${guests} on ${d}.<br>Deposit today: <b>${fmt(DEPOSIT)}</b> · Balance on the day: ${fmt(trip.price-DEPOSIT)}`;
     $('modal').classList.add('open');
   });
+  // videos load only when tapped
+  document.querySelectorAll('.vid').forEach(b=>b.addEventListener('click',()=>{
+    if (b.querySelector('iframe')) return;
+    const f = document.createElement('iframe');
+    f.src = `https://player.vimeo.com/video/${b.dataset.vimeo}?h=${b.dataset.h}&autoplay=1&title=0&byline=0&portrait=0&playsinline=1`;
+    f.allow = 'autoplay; fullscreen; picture-in-picture'; f.title = b.getAttribute('aria-label').replace('Play video: ','');
+    b.appendChild(f); b.querySelector('.play').remove();
+  }));
   $('modalClose').addEventListener('click',()=>$('modal').classList.remove('open'));
   $('modal').addEventListener('click',e=>{ if(e.target.id==='modal') $('modal').classList.remove('open'); });
   // hide the phone call/book bar while the booking form is on screen
