@@ -61,6 +61,10 @@
   .hero-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% center}
   .hero-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,26,46,.84) 0%,rgba(8,26,46,.55) 45%,rgba(8,26,46,.05) 80%),linear-gradient(0deg,rgba(8,26,46,.45),transparent 40%)}
   .hero-inner{position:relative;padding:140px 0 170px;max-width:680px}
+  @media (min-width:901px){
+    .hero-art{left:30%;width:70%;object-position:center 40%}
+    .hero-shade{background:linear-gradient(90deg,#0b2642 0%,#0b2642 30%,rgba(11,38,66,.55) 42%,rgba(11,38,66,.05) 70%),linear-gradient(0deg,rgba(8,26,46,.4),transparent 40%)}
+  }
   .hero h1{font-size:clamp(2.6rem,6.4vw,4.8rem);font-weight:700;text-shadow:0 2px 24px rgba(11,38,66,.35)}
   .hero h1 em{font-style:italic;color:var(--coral)}
   .hero p{font-size:1.18rem;max-width:40ch;opacity:.95}
@@ -299,7 +303,7 @@
     <div class="hero-inner">
       <span class="hero-badge"><span class="stars">★★★★★</span> 5.0 from 295 reviews</span>
       <h1>Fish Marathon with a <em>Keys family</em></h1>
-      <p>Tarpon, sharks, flats and more with Captain John Callion, born and raised in the Keys and part of a 4th-generation Keys fishing family.</p>
+      <p>Tarpon, sharks, flats and more with Captain John Callion, born and raised in the Keys. His family has fished these waters for four generations.</p>
       <div class="hero-ctas">
         <a href="#bookForm" class="btn btn-coral">Book your trip →</a>
         <a href="#trips" class="btn btn-ghost">See trips &amp; prices</a>
