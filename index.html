@@ -52,11 +52,10 @@
   .menu-btn span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0}
 
   /* hero */
-  .hero{position:relative;padding:0;min-height:640px;display:flex;align-items:flex-end;color:#fff;background:var(--navy)}
-  .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 45%}
-  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,20,34,.78) 0%,rgba(8,20,34,.35) 45%,rgba(8,20,34,.1) 100%)}
-  .hero-inner{position:relative;z-index:1;padding:0 0 64px;width:100%}
-  .hero h1{color:#fff;font-size:clamp(3rem,7.5vw,5.6rem);margin:0 0 10px}
+  .hero{padding:0;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);min-height:600px;color:#fff;background:var(--navy)}
+  .hero img{grid-column:2;grid-row:1;width:100%;height:100%;min-height:600px;object-fit:cover;object-position:42% 50%;display:block}
+  .hero-inner{grid-column:1;grid-row:1;align-self:center;padding:56px 40px 56px max(20px,calc((100vw - 1140px) / 2 + 20px))}
+  .hero h1{color:#fff;font-size:clamp(3rem,5.6vw,5rem);margin:0 0 10px}
   .hero .place{font-family:"Barlow Condensed",sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:1.15rem;margin-bottom:14px;color:#e8edf2}
   .hero p{font-size:1.15rem;max-width:44ch;margin-bottom:26px}
   .hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
@@ -176,7 +175,9 @@
     .nav-links a{padding:12px 0}
     .nav-links .btn{margin-top:8px}
     .menu-btn{display:block}
-    .hero{min-height:560px}
+    .hero{grid-template-columns:1fr;min-height:0}
+    .hero img{grid-column:1;grid-row:1;min-height:0;height:300px;object-position:48% 50%}
+    .hero-inner{grid-column:1;grid-row:2;padding:32px 20px 40px}
     .video-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin:32px -20px 0;padding:0 20px 12px;scroll-padding:0 20px}
     .vid-card{flex:0 0 62%;scroll-snap-align:start}
     .boat-gallery{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;height:320px;margin:32px -20px 0;padding:0 20px;scroll-padding:0 20px}
@@ -189,7 +190,6 @@
     footer.site{padding-bottom:96px}
   }
   @media (max-width:560px){
-    .hero-inner{padding-bottom:44px}
     .hero-ctas .btn{flex:1 1 100%}
     .photos{grid-template-rows:160px 160px}
     .form-card{padding:18px}
@@ -220,7 +220,7 @@
 
 <section class="hero">
   <img src="images/boat.jpg" alt="Two anglers holding their catch on a center console at sunset off Marathon">
-  <div class="wrap hero-inner">
+  <div class="hero-inner">
     <h1>Callion Fishing<br>Charters</h1>
     <div class="place">Marathon, Florida Keys · Since 1979</div>
     <p>Tarpon, sharks, flats and more with Captain John Callion, born and raised in the Keys.</p>
@@ -485,7 +485,7 @@
 </section>
 
 <section id="faq">
-  <div class="wrap faq">
+  <div class="wrap"><div class="faq">
     <h2>FAQ</h2>
     <details open>
       <summary>How do I book a trip?</summary>
@@ -515,7 +515,7 @@
       <summary>Where do we meet?</summary>
       <p>Callion Fishing Charters is at 11833 Overseas Highway in Marathon. Captain John confirms where to meet when you book.</p>
     </details>
-  </div>
+  </div></div>
 </section>
 
 </main>
