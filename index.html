@@ -139,7 +139,9 @@
   .boat-photos .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 
   /* videos */
-  .video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:920px}
+  .video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:920px;margin:0 auto}
+  .videos-head{text-align:center;margin-bottom:44px}
+  .videos-head .lead{margin:0 auto}
   .vid-card{margin:0}
   .vid{position:relative;display:block;width:100%;aspect-ratio:9/16;border:0;padding:0;border-radius:var(--radius);overflow:hidden;cursor:pointer;background:var(--ink)}
   .vid img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
@@ -524,12 +526,10 @@
 <!-- VIDEOS -->
 <section id="videos">
   <div class="wrap">
-    <div class="trips-head">
-      <div>
-        <span class="eyebrow">Videos</span>
-        <h2>See it for yourself</h2>
-        <p class="lead">A few clips from the boat.</p>
-      </div>
+    <div class="videos-head">
+      <span class="eyebrow">Videos</span>
+      <h2>See it for yourself</h2>
+      <p class="lead">A few clips from the boat.</p>
     </div>
     <div class="video-grid">
       <figure class="vid-card">
