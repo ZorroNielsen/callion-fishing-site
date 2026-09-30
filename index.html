@@ -119,6 +119,9 @@
   .vid-card figcaption{font-weight:700;margin-top:10px}
 
   /* boats */
+  .boat-model{margin-top:8px}
+  .boat-model h3{margin-bottom:2px}
+  .boat-model p{color:var(--muted);font-size:1.1rem;margin:0}
   .boat-gallery{display:grid;grid-template-columns:1.9fr 1fr 1fr 1fr;gap:12px;height:420px;margin-top:36px}
   .boat-gallery img{width:100%;height:100%;object-fit:cover;border-radius:8px;display:block}
 
@@ -412,12 +415,15 @@
 <section id="boat">
   <div class="wrap">
     <h2>Our Boats</h2>
-    <p class="intro">Our 25' LTB was custom built by the Capt. and can hold up to 4 passengers.</p>
+    <div class="boat-model">
+      <h3>25' LTB</h3>
+      <p>Custom built by the Capt. Can hold up to 4 passengers.</p>
+    </div>
     <div class="boat-gallery">
       <img class="wide" src="images/boat-sandbar.jpg" alt="The 25-foot LTB anchored off a sandbar in clear water" loading="lazy">
       <img src="images/boat-dock.jpg" alt="The LTB tied up at the dock" loading="lazy">
       <img src="images/boat-running.jpg" alt="The LTB running with anglers aboard" loading="lazy">
-      <img src="images/boat-skiff.jpg" alt="A flats skiff on its trailer" loading="lazy">
+      <img src="images/boat-skiff.jpg" alt="Boat at the dock" loading="lazy">
     </div>
   </div>
 </section>
